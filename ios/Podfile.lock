@@ -1,0 +1,70 @@
+PODS:
+  - Checkout (4.3.7):
+    - CheckoutEventLoggerKit (~> 1.2.4)
+    - Risk (= 3.0.2)
+  - CheckoutEventLoggerKit (1.2.4)
+  - connectivity_plus (0.0.1):
+    - Flutter
+  - FingerprintPro (2.2.0)
+  - Flutter (1.0.0)
+  - flutter_checkout_payment (0.0.1):
+    - Flutter
+    - Frames (~> 4.0)
+  - flutter_credit_card (0.0.1):
+    - Flutter
+  - Frames (4.3.7):
+    - Checkout (= 4.3.7)
+    - CheckoutEventLoggerKit (~> 1.2.4)
+    - PhoneNumberKit
+  - PhoneNumberKit (3.3.4):
+    - PhoneNumberKit/PhoneNumberKitCore (= 3.3.4)
+    - PhoneNumberKit/UIKit (= 3.3.4)
+  - PhoneNumberKit/PhoneNumberKitCore (3.3.4)
+  - PhoneNumberKit/UIKit (3.3.4):
+    - PhoneNumberKit/PhoneNumberKitCore
+  - Risk (3.0.2):
+    - CheckoutEventLoggerKit (~> 1.2.4)
+    - FingerprintPro (= 2.2.0)
+
+DEPENDENCIES:
+  - connectivity_plus (from `.symlinks/plugins/connectivity_plus/ios`)
+  - Flutter (from `Flutter`)
+  - flutter_checkout_payment (from `.symlinks/plugins/flutter_checkout_payment/ios`)
+  - flutter_credit_card (from `.symlinks/plugins/flutter_credit_card/ios`)
+  - Frames (~> 4.0)
+  - PhoneNumberKit (= 3.3.4)
+
+SPEC REPOS:
+  trunk:
+    - Checkout
+    - CheckoutEventLoggerKit
+    - FingerprintPro
+    - Frames
+    - PhoneNumberKit
+    - Risk
+
+EXTERNAL SOURCES:
+  connectivity_plus:
+    :path: ".symlinks/plugins/connectivity_plus/ios"
+  Flutter:
+    :path: Flutter
+  flutter_checkout_payment:
+    :path: ".symlinks/plugins/flutter_checkout_payment/ios"
+  flutter_credit_card:
+    :path: ".symlinks/plugins/flutter_credit_card/ios"
+
+SPEC CHECKSUMS:
+  Checkout: 5d909e76355e8cfefa32c7520de50fa54185adf2
+  CheckoutEventLoggerKit: b780dec46295a34942780ea6230d0d5fd08aa05a
+  connectivity_plus: 2a701ffec2c0ae28a48cf7540e279787e77c447d
+  FingerprintPro: 72e35dc0315b75ba36eafaaed996dbb2f35f7326
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  flutter_checkout_payment: ee8fecec23d77da3224ece04397142645bcc7850
+  flutter_credit_card: 48fb35065294868bc6a3e7f18a42f28929b84f48
+  Frames: cf2d1a0b52866f45a5e60c3dd2f143b2da72da12
+  PhoneNumberKit: 441e8b26ec88d598e3591de9061eff18f5dd12e8
+  Risk: a0732fef94dfddfa76ca70dbe0e5fe0f05557ec1
+
+PODFILE CHECKSUM: 327d0a9e6c2c215c6536c68692dcf14e5ceb8089
+
+COCOAPODS: 1.16.2
