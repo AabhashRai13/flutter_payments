@@ -8,6 +8,7 @@ import 'package:flutter_checkout_implementation/core/network/api_service.dart';
 import 'package:flutter_checkout_implementation/core/params/payment_params.dart';
 import 'package:flutter_checkout_implementation/core/utils/resources/typedef.dart';
 import 'package:flutter_checkout_implementation/data/model/payment_response_model.dart';
+import 'package:flutter_checkout_implementation/data/model/payment_unsuccessful_model.dart';
 import 'package:flutter_checkout_implementation/domain/entities/cart_details.dart';
 import 'package:flutter_checkout_implementation/domain/entities/payment_success_response.dart';
 import 'package:flutter_checkout_implementation/domain/entities/token.dart';
@@ -21,12 +22,15 @@ abstract class PaymentRemoteDataSource {
     String successUrl,
     String failUrl,
   );
-  ResultFuture<PaymentSuccessResponse> processPayment(PaymentParams paymentParams);
+  ResultFuture<PaymentSuccessResponse> processPayment(
+      PaymentParams paymentParams,);
 }
 
 class PaymentRemoteDataSourceImpl implements PaymentRemoteDataSource {
-  PaymentRemoteDataSourceImpl(
-      {required this.checkoutPayment, required this.apiService,});
+  PaymentRemoteDataSourceImpl({
+    required this.checkoutPayment,
+    required this.apiService,
+  });
 
   final FlutterCheckoutPayment checkoutPayment;
   final ApiService apiService;
@@ -94,6 +98,18 @@ class PaymentRemoteDataSourceImpl implements PaymentRemoteDataSource {
         return Right(
           PaymentSuccessResponseModel.fromJson(
             jsonDecode(response.body) as DataMap,
+          ),
+        );
+      } else if (response.statusCode == 402) {
+        final responseMap = jsonDecode(response.body) as DataMap;
+        final paymentUnsuccessfulResponse =
+            PaymentUnsuccessfulResponseModel.fromJson(responseMap);
+        return Left(
+          PaymentFailure(
+            message: paymentUnsuccessfulResponse.error.message,
+            statusCode: response.statusCode,
+            failureType: paymentUnsuccessfulResponse.error.code,
+            errorCode: paymentUnsuccessfulResponse.error.details.paymentId,
           ),
         );
       } else {
